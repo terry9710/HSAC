@@ -4,7 +4,6 @@ import time
 from spinup.algos.tf1.sac import core2
 from spinup.algos.tf1.sac.core2 import get_vars
 from spinup.utils.logx import EpochLogger
-import pickle
 from sklearn import preprocessing
 import pandas as pd
 from keras.models import load_model
@@ -68,12 +67,6 @@ class ReplayBuffer:
         return np.array(batch['obs1']), idxs
 
 
-    def save_buffer(self, name):
-        data_dict = {'obs1': self.obs1_buf, 'obs2': self.obs2_buf, 'acts': self.acts_buf
-            , 'done': self.done_buf, 'rews': self.rews_buf, 'ptr': self.ptr, 'size':
-                         self.size, 'max_size': self.max_size}
-        with open('data/' + name + '.pickle', 'wb') as handle:
-            pickle.dump(data_dict, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
     #数据预处理
     def load_from_csv(self, column_dict):
