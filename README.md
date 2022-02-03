@@ -7,4 +7,4 @@ numpy                1.19.5
 Keras                2.1.6
 scikit-learn         0.24.2
 pandas               1.1.5
-pickleshare          0.7.5
+
